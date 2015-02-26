@@ -1,12 +1,12 @@
 users=[]
-100.times do 
-  user << User.create!(username: Faker::Name.name, password: '123456')
+100.times do
+  users << User.create!(username: Faker::Name.name, password: '12345678', email: Faker::Internet.email)
 end
 
 questions=[]
 1000.times do
   questions << Question.create!(title: Faker::Company.catch_phrase, content: Faker::Company.bs, author: users.sample)
-end 
+end
 
 answers=[]
 500.times do
@@ -19,7 +19,7 @@ comments=[]
 end
 
 tags=[]
-20.times do 
+20.times do
  tags << Tag.create!(name: Faker::Hacker.adjective)
 end
 
