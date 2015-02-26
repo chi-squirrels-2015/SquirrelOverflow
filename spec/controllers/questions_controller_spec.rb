@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController do
-  let!(:user) {User.create!(email: "fake@fake.com", password: "fakefake")}
-  # change user email to username when fixed in migrations
+  let!(:user) {User.create!(username: "fakeusername", email: "fake@fake.com", password: "fakefake")}
   let!(:question) {Question.create!(title:'fake question', content: 'fake', author: user)}
 
 
@@ -21,6 +20,22 @@ describe QuestionsController do
       get :index
       expect(assigns(:questions)).to eq(Question.recent)
     end
+  end
+
+  describe "GET #show" do
+
+    it "assigns @question to the current question" do
+      get :show, { id: question.to_param }
+      expect(assigns(:question)).to eq(question)
+    end
+
+    it "assigns @answers to the answers of the current question" do
+      get :show, { id: question.to_param }
+      expect(assigns(:answers)).to eq(question.answers)
+    end
+
+
+
   end
 
 end
