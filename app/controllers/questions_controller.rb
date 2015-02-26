@@ -1,4 +1,4 @@
-class Question < ApplicationController
+class QuestionsController < ApplicationController
 
   def index
     @questions = Question.recent
