@@ -40,7 +40,7 @@ class Question < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :content).merge({user: current_user})
+    params.require(:question).permit(:title, :content).merge({author: current_user})
   end
 
 end
