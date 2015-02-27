@@ -1,0 +1,23 @@
+<h3>Questions</h3>
+<ul>
+  <%@questions.each do |question|%>
+    <li class="row">
+      <div class="col-md-3">
+        <p>question.vote_count</p>
+        <p>Votes</p>
+      </div>
+      <div class="col-md-3">
+        <p>question.answers.count</p>
+        <p>Answers</p>
+      </div>
+      <div class="col-md-6">
+        <p>question.title</p>
+        <p>
+          <%question.tags.each do |tag|%>
+            <span class="btn btn-default">tag.name</span>
+          <%end%>
+        </p>
+      </div>
+    </li>
+  <%end%>
+</ul>
