@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  validates :author, presence: true
+  validates :answer, presence: true
+
   belongs_to :author, class_name: User
   belongs_to :answer
 

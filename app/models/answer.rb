@@ -1,4 +1,7 @@
 class Answer < ActiveRecord::Base
+  validates :author, presence: true
+  validates :question, presence: true
+
   belongs_to :author, class_name: User
   belongs_to :question
   has_many :comments

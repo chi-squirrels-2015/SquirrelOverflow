@@ -1,6 +1,8 @@
 class Question < ActiveRecord::Base
   scope :recent, -> { order("created_at DESC").limit(10) }
 
+  validates :author, presence: true
+
   belongs_to :author, class_name: User
   has_many :answers
 
