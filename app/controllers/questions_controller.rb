@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to action: "show", id: @question.id
     else
-      redirect_to action: "new"
+      render :new
     end
   end
 
