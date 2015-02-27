@@ -1,0 +1,6 @@
+<h2>Ask a question</h2>
+<%= form_for :question do |f| %>
+  Title: <%= f.text_field :title %><br>
+  Content: <%= f.text_area :content %><br>
+  <%= f.submit name="Submit"%>
+<% end %>
