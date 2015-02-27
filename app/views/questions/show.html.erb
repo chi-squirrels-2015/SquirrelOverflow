@@ -1,0 +1,23 @@
+<div class="container">
+  <h2> <%= @question.title %> </h2>
+
+    <div class="question_content">
+        <p> <%= @question.content %> </p>
+    </div>
+
+    <div class="question_answers">
+      <% @question.answers.each do |answer| %>
+        <p> <%= answer.content %> </p>
+      <% end %>
+    </div>
+
+    <div class="answer_form">
+      <%= form_for [@question, @new_answer] do |f| %>
+        <%= f.text_area  :content %>
+        <%= f.submit "Save Answer" %>
+      <% end %>
+    </div>
+
+
+
+</div>
