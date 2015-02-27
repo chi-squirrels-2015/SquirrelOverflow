@@ -13,7 +13,7 @@
 
     <div class="answer_form">
       <%= form_for [@question, @new_answer] do |f| %>
-        <%= f.text_area  :content %>
+        <%= f.text_area :content %>
         <%= f.submit "Save Answer" %>
       <% end %>
     </div>
