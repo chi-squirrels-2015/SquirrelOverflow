@@ -14,3 +14,8 @@
  *= require bootstrap.min
  *= require_self
  */
+
+
+.container {
+  margin-top: 7.5%;
+}
