@@ -6,27 +6,27 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<header>
-  <h1><%=link_to("SquirrelOverflow", questions_path)%></h1>
-  <ul class="nav nav-pills">
-    <li><%=link_to("Login", new_user_session_path)%></li>
-    <li><%=link_to("Sign Up", new_user_registration_path)%></li>
-    <li><%=link_to("Ask", new_question_path)%></li>
-  </ul>
-</header>
 <body>
-<div id="nav">
-    <div id="brand">
-      <a href="/">Squirrel Overflow</a>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Squirrel Overflow</a>
     </div>
-    <ul id="userlogin">
-      <% if current_user %>
-        <li id="signout"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+      <ul class="nav navbar-nav navbar-right">
+       <% if current_user %>
+        <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
-        <li id="signin"><%= link_to('Sign In', new_user_session_path) %></li>
-        <li id="signup"><%= link_to('Register', new_user_registration_path)  %></li>
+        <li><%= link_to('Sign In', new_user_session_path) %></li>
+        <li><%= link_to('Register', new_user_registration_path)  %></li>
       <% end %>
-    </ul>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   </div>
 
 <%= yield %>
