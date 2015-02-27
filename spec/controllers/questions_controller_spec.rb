@@ -35,7 +35,54 @@ describe QuestionsController do
     end
 
 
+  end
 
+  describe "GET #new" do
+    it "creates a new question" do
+      get :new
+      expect(assigns(:question)).to be_a_kind_of(Question)
+    end
+  end
+
+  describe "POST #create" do
+    context "when valid parameters are passed" do
+      it "creates a new question" do
+        post :create, { question: {id: question.to_param} }
+        expect(assigns(:question)).to_not be_nil
+      end
+
+      it "assigns a newly created question as @question" do
+        post :create, { question: {id: question.to_param} }
+        expect(assigns(:question)).to be_a_kind_of(Question)
+      end
+
+      it "redirects to the created question" do
+        pending
+      end
+    end
+
+    context "when invalid parameters are passed" do
+      it "assigns a newly created but unsaved question as @question" do
+        post :create, { question: {id: question.to_param} }
+        expect(assigns(:question)).to be_a_kind_of(Question)
+      end
+
+      it "re-renders the 'new' template" do
+        pending
+      end
+    end
+  end
+
+  describe "POST #edit" do
+    pending
+  end
+
+  describe "POST #update" do
+    pending
+  end
+
+  describe "POST #destroy" do
+    pending
   end
 
 end

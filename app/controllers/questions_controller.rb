@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_by_id(params[:question_id])
+    @question = Question.find_by_id(params[:id])
     @answers = @question.answers
   end
 
@@ -14,9 +14,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    if question.save
-      redirect_to action: "show", id: question.id
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to action: "show", id: @question.id
     else
       redirect_to action: "new"
     end
