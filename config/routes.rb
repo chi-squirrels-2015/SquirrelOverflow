@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   root 'questions#index'
 
+  get 'questions/users/sign_up' => 'views/registrations#new.html.erb'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
