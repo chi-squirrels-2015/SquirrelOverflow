@@ -9,7 +9,15 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :voters, through: :votes
 
+  def upvotes
+    self.votes.select{|vote| vote.upvote}
+  end
+
+  def downvotes
+    self.votes.select{|vote| !vote.upvote}
+  end
+
   def vote_count
-    self.votes.size
+    upvotes.size - downvotes.size
   end
 end
