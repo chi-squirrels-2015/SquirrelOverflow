@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController do
-  let!(:user) {User.create!(username: "fakeusername", email: "fake@fake.com", password: "fakefake")}
+  let!(:user) {User.create!(username: "fakeusername", email: "fake@fake.com", password: "fakefake", password_confirmation: "fakefake")}
   let!(:question) {Question.create!(title:'fake question', content: 'fake', author: user)}
 
 
@@ -13,7 +13,7 @@ describe QuestionsController do
       end
       get :index
       expect(assigns(:questions)).to all(be_kind_of(Question))
-      expect(assigns(:questions.count)).to eq(10)
+      expect( assigns(:questions).length ).to eq(10)
     end
 
     it "assigns @questions to recent questions" do
