@@ -1,8 +1,7 @@
-<div class="container">
+<div class="container questions-block">
   <h3>Questions</h3>
-  <ul>
     <%@questions.each do |question|%>
-      <li class="row">
+      <div class="row question-row">
         <div class="col-md-3">
           <p><%=question.vote_count%></p>
           <p>Votes</p>
@@ -19,7 +18,6 @@
             <%end%>
           </p>
         </div>
-      </li>
+      </div>
     <%end%>
-  </ul>
 </div>
