@@ -11,6 +11,9 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :voters, through: :votes
 
+  has_many :tagged_questions
+  has_many :tags, through: :tagged_questions
+
   def upvotes
     self.votes.select{|vote| vote.upvote}
   end
