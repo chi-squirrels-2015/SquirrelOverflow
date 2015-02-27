@@ -1,6 +1,8 @@
 class Question < ActiveRecord::Base
   scope :recent, -> { order("created_at DESC").limit(10) }
 
+  validates :author, presence: true
+
   belongs_to :author, class_name: User
   has_many :answers
 
@@ -9,7 +11,15 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :voters, through: :votes
 
+  def upvotes
+    self.votes.select{|vote| vote.upvote}
+  end
+
+  def downvotes
+    self.votes.select{|vote| !vote.upvote}
+  end
+
   def vote_count
-    self.votes.size
+    upvotes.size - downvotes.size
   end
 end
