@@ -24,7 +24,7 @@ tags=[]
 end
 
 4000.times do
-  Vote.create!(voter: users.sample, content: (answers + comments + questions).sample )
+  Vote.create!(voter: users.sample, votable: (answers + comments + questions).sample)
 end
 
 3200.times do
