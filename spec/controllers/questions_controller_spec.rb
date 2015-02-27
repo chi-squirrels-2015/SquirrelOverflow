@@ -47,7 +47,7 @@ describe QuestionsController do
   describe "POST #create" do
     context "when valid parameters are passed" do
       it "creates a new question" do
-        post :create, { question: {id: question.to_params} }
+        post :create, { question: {id: question.to_param} }
         expect(assigns(:question)).to_not be_nil
       end
 
