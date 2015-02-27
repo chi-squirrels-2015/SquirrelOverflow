@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/" => "/questions"
+  root "questions#index"
 
   devise_for :users
 
