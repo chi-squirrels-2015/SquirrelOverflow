@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe QuestionsController do
-  let!(:user) {User.create!(username: "fakeusername", email: "fake@fake.com", password: "fakefake")}
+  let!(:user) {User.create!(username: "fakeusername", email: "fake@fake.com", password: "fakefake", password_confirmation: "fakefake")}
   let!(:question) {Question.create!(title:'fake question', content: 'fake', author: user)}
 
 

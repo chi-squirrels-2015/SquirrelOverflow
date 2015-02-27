@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get "/" => "/questions"
+
   devise_for :users
 
   resources :questions
