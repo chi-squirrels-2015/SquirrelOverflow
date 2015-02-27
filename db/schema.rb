@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150226215657) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150226215657) do
   end
 
   create_table "tagged_questions", force: :cascade do |t|
-    t.integer  "tags_id"
+    t.integer  "tag_id"
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -69,9 +67,7 @@ ActiveRecord::Schema.define(version: 20150226215657) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-
     t.string   "username"
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -82,8 +78,9 @@ ActiveRecord::Schema.define(version: 20150226215657) do
     t.integer  "voter_id"
     t.integer  "votable_id"
     t.string   "votable_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "upvote",       default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end
