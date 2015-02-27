@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20150226215657) do
     t.integer  "votable_id"
     t.string   "votable_type"
     t.boolean  "upvote",       default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
