@@ -57,7 +57,8 @@ describe QuestionsController do
       end
 
       it "redirects to the created question" do
-        pending
+        post :create, :id => question.id
+        response.should redirect_to "/questions/#{question.id}"
       end
     end
 
@@ -68,21 +69,42 @@ describe QuestionsController do
       end
 
       it "re-renders the 'new' template" do
-        pending
+        post :create, { question: {id: question.to_param} }
+        response.should redirect_to "/questions/new"
       end
     end
   end
 
-  describe "POST #edit" do
-    pending
+  describe "GET #edit" do
+    it "finds the correct question to edit" do
+      get :edit, { question: {id: question.to_param} }
+      expect(assigns(:question)).to eq(question)
+    end
   end
 
   describe "POST #update" do
-    pending
+    it "updates the correct question" do
+      post :update
+
+    end
   end
 
-  describe "POST #destroy" do
-    pending
+  describe "DELETE #destroy" do
+    it "assigns the requested question as @question" do
+      delete :destroy, { id: question.to_param }
+      expect(assigns(:question)).to eq(question)
+    end
+
+    it "destroys the requested question" do
+      expect {
+        delete :destory, id: question.id
+      }.to change(Question, :count).by(-1)
+    end
+
+    it "redirects to the questions list" do
+      delete :destroy, { id: question.to_param }
+      response.should redirect_to "/questions"
+    end
   end
 
 end
