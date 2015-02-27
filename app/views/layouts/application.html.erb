@@ -13,10 +13,10 @@
     </div>
     <ul id="userlogin">
       <% if current_user %>
-        <li id="signout"><a href="/users/signout">Log Out</a></li>
+        <li id="signout"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
       <% else %>
-        <li id="signin"><a href="/users/sign_in">Sign In</a></li>
-        <li id="signup"><a href="/users/sign_up">Sign Up</a></li>
+        <li id="signin"><%= link_to('Sign In', new_user_session_path) %></li>
+        <li id="signup"><%= link_to('Register', new_user_registration_path)  %></li>
       <% end %>
     </ul>
   </div>
