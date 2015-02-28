@@ -1,0 +1,4 @@
+<%= form_for [@question, @new_answer] do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit "Save Answer" %>
+<% end %>
