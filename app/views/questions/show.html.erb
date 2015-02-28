@@ -1,18 +1,24 @@
 <div class="container">
-  <h2> <%= @question.title %> </h2>
-
-    <div class="question_content">
-        <p> <%= @question.content %> </p>
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to "", question_votes_path(@question), class: "fa fa-arrow-up fa-lg", method: "post", id: "upvote" %>
+      <div><h4><%=@question.votes.count%></h4></div>
+       <%= link_to "", question_votes_path(@question), class: "fa fa-arrow-down fa-lg", method: "post", id: "downvote" %>
     </div>
+    <div class="col-md-11">
+      <h2><%= @question.title %></h2>
+      <div class="question_content">
+          <p> <%= @question.content %> </p>
+      </div>
+      <div class="question_answers">
+          <%= render @answers %>
 
-    <div class="question_answers">
-        <%= render @answers %>
+      </div>
 
-    </div>
-
-    <div class="answer_form">
-      <%= render "answer_form" %>
-    </div>
+      <div class="answer_form">
+        <%= render "answer_form" %>
+      </div>
+  </div>
 
 
 
