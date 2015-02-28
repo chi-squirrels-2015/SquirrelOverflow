@@ -6,12 +6,16 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  post "questions/:question_id/votes/up" => "votes#upvote", as: "question_upvote"
+  post "questions/:question_id/votes/down" => "votes#downvote", as: "question_downvote"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root 'questions#index'
 
   get 'questions/users/sign_up' => 'views/registrations#new.html.erb'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

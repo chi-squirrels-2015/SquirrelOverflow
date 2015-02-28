@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1">
-      <%= link_to "", question_votes_path(@question), class: "fa fa-arrow-up fa-lg", method: "post", id: "upvote" %>
-      <div><h4><%=@question.votes.count%></h4></div>
-       <%= link_to "", question_votes_path(@question), class: "fa fa-arrow-down fa-lg", method: "post", id: "downvote" %>
+    <div class="col-md-1" id="vote-block">
+      <%= link_to "", question_upvote_path(@question), remote: true, class: "fa fa-arrow-up fa-lg", method: "post", id: "upvote" %>
+      <h4 id="vote-count"><%=@question.vote_count%></h4>
+      <%= link_to "", question_downvote_path(@question), remote: true, class: "fa fa-arrow-down fa-lg", method: "post", id: "downvote" %>
     </div>
     <div class="col-md-11">
       <h2><%= @question.title %></h2>
@@ -12,14 +12,10 @@
       </div>
       <div class="question_answers">
           <%= render @answers %>
-
       </div>
 
       <div class="answer_form">
         <%= render "answer_form" %>
       </div>
-  </div>
-
-
-
+    </div>
 </div>
