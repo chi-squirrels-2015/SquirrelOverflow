@@ -19,8 +19,8 @@ comments=[]
 end
 
 tags=[]
-20.times do
- tags << Tag.create!(name: Faker::Hacker.adjective)
+until Tag.all.size == 20
+ tags << Tag.create(name: Faker::Hacker.adjective)
 end
 
 4000.times do
@@ -28,7 +28,7 @@ end
 end
 
 3200.times do
-  TaggedQuestion.create!(tag: tags.sample, question: questions.sample)
+  TaggedQuestion.create(tag: tags.sample, question: questions.sample)
 end
 
 
