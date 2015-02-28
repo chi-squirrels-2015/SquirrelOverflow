@@ -14,9 +14,7 @@
         <div class="col-md-6">
           <p><%=link_to(question.title, question_path(question))%></p>
           <p>
-            <%question.tags.each do |tag|%>
-              <span class="btn btn-default"><%=tag.name%></span>
-            <%end%>
+            <%= render question.tags %>
           </p>
         </div>
       </div>
