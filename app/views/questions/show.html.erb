@@ -1,18 +1,23 @@
 <div class="container">
-  <h2> <%= @question.title %> </h2>
-
-    <div class="question_content">
-        <p> <%= @question.content %> </p>
+  <div class="row">
+    <div class="col-md-1">
+      <div class="glyphicon glyphicon-triangle-top"></div>
+      <div class="glyphicon glyphicon-triangle-bottom"></div>
     </div>
+    <div class="col-md-11">
+      <h2><%= @question.title %></h2>
+      <div class="question_content">
+          <p> <%= @question.content %> </p>
+      </div>
+      <div class="question_answers">
+          <%= render @answers %>
 
-    <div class="question_answers">
-        <%= render @answers %>
+      </div>
 
-    </div>
-
-    <div class="answer_form">
-      <%= render "answer_form" %>
-    </div>
+      <div class="answer_form">
+        <%= render "answer_form" %>
+      </div>
+  </div>
 
 
 
