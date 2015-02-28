@@ -6,16 +6,12 @@
     </div>
 
     <div class="question_answers">
-      <% @question.answers.each do |answer| %>
-        <p> <%= answer.content %> </p>
-      <% end %>
+        <%= render @answers %>
+
     </div>
 
     <div class="answer_form">
-      <%= form_for [@question, @new_answer] do |f| %>
-        <%= f.text_area :content %>
-        <%= f.submit "Save Answer" %>
-      <% end %>
+      <%= render "answer_form" %>
     </div>
 
 
