@@ -5,7 +5,7 @@ $(document).on("ready page:load", ->
 
   $("#new_question").on("keyup", (event)->
     form = $("#new_question")
-    console.log(form)
+
     request = $.ajax({
         url: "/questions/preview"
         type: "post"
