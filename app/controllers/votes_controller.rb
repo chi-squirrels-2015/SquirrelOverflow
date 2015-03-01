@@ -1,13 +1,48 @@
 class VotesController < ApplicationController
 
-  def create
+  def upvote
+
     @question = Question.find(params[:question_id])
-    vote = Vote.new(vote_params)
-
-    if vote.save
-      "horray!"
+    vote = Vote.new(votable: @question, voter: current_user, upvote: true)
+    respond_to do |format|
+      if vote.save!
+        format.html { @question.vote_count }
+        format.js do
+          render js: <<-endjs
+              #{@question.vote_count}
+          endjs
+        end
+      else
+        format.html { @question.vote_count }
+        format.js do
+          render js: <<-endjs
+            alert("vote fail")
+          endjs
+        end
+      end
     end
+  end
 
+  def downvote
+    @question = Question.find(params[:question_id])
+    vote = Vote.new(votable: @question, voter: current_user, upvote: false)
+    respond_to do |format|
+      if vote.save!
+        format.html { @question.vote_count }
+        format.js do
+          render js: <<-endjs
+              #{@question.vote_count}
+          endjs
+        end
+      else
+        format.html { @question.vote_count }
+        format.js do
+          render js: <<-endjs
+            alert("vote fail")
+          endjs
+        end
+      end
+    end
   end
 
   private

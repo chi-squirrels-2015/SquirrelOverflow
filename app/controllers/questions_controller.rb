@@ -14,6 +14,14 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def preview
+    options = { autolink: true,
+                disable_indented_code_blocks: true,
+                fenced_code_blocks: true,
+                prettify: true}
+    render json: {content: Redcarpet::Markdown.new(Redcarpet::Render::HTML, options).render(params[:question][:content]) }
+  end
+
   def create
     @question = Question.new(question_params)
     if @question.save
