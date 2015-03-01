@@ -13,7 +13,7 @@ $(document).on("ready page:load", ->
       })
 
     request.done (response) ->
-      $(".jumbotron").html(response.content)
+      $(".preview").html(response.content)
   )
 
 )
