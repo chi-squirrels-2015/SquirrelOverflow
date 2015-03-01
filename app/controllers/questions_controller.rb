@@ -1,5 +1,11 @@
 class QuestionsController < ApplicationController
 
+  class CodeColorRender < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.scan(code, language).div
+    end
+  end
+
   def index
     @questions = Question.recent
   end
@@ -15,11 +21,11 @@ class QuestionsController < ApplicationController
   end
 
   def preview
+    coderay = CodeColorRender.new(filter_html: true, hard_wrap: true)
     options = { autolink: true,
-                disable_indented_code_blocks: true,
-                fenced_code_blocks: true,
-                prettify: true}
-    render json: {content: Redcarpet::Markdown.new(Redcarpet::Render::HTML, options).render(params[:question][:content]) }
+                fenced_code_blocks: true
+              }
+    render json: {content: Redcarpet::Markdown.new(coderay, options).render(params[:question][:content]) }
   end
 
   def create

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post "questions/:question_id/votes/down" => "votes#downvote", as: "question_downvote"
   post "questions/preview" => "questions#preview", as: "question_preview"
 
+  get "tags.json" => "tags#json_index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

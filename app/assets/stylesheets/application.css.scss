@@ -13,6 +13,9 @@
  *= require_tree .
  *= require bootstrap.min
  *= require_self
+ *= require textext.core
+ *= require textext.plugin.autocomplete
+ *= require textext.plugin.tags
  */
 
  @import "font-awesome-sprockets";
