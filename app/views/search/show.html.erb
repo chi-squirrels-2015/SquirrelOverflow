@@ -1,0 +1,23 @@
+<div class="container questions-block">
+  <div class="row">
+  <h3>Questions</h3>
+    <%@results.each do |question|%>
+      <div class="row question-row">
+        <div class="col-md-3">
+          <p><%=question.vote_count%></p>
+          <p>Votes</p>
+        </div>
+        <div class="col-md-3">
+          <p><%=question.answers.count%></p>
+          <p>Answers</p>
+        </div>
+        <div class="col-md-6">
+          <p><%=link_to(question.title, question_path(question))%></p>
+          <p>
+            <%= render question.tags %>
+          </p>
+        </div>
+      </div>
+    <%end%>
+    </div>
+</div>
