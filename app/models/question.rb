@@ -20,10 +20,8 @@ class Question < ActiveRecord::Base
       if query
         @questions = query.questions
       end
-      puts "========================================"
-      puts @questions
     else
-      @questions = Question.all
+      @questions = Question.recent
     end
   end
 
