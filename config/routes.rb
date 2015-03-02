@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  get '/questions' => 'questions#index'
+
   root 'questions#index'
 
   get 'questions/users/sign_up' => 'views/registrations#new.html.erb'
