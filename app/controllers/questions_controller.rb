@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.recent
+    @results = Question.search(params[:query])
   end
 
   def show

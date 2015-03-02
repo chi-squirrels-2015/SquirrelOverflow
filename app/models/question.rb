@@ -14,6 +14,19 @@ class Question < ActiveRecord::Base
   has_many :tagged_questions
   has_many :tags, through: :tagged_questions
 
+  def self.search(search)
+    if search
+      query = Tag.find_by_name(search)
+      if query
+        @questions = query.questions
+      end
+      puts "========================================"
+      puts @questions
+    else
+      @questions = Question.all
+    end
+  end
+
   def upvotes
     self.votes.select{|vote| vote.upvote}
   end
