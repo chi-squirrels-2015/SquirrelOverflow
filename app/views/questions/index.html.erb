@@ -1,5 +1,8 @@
 <div class="container questions-block">
   <div class="row">
+  <% if @error %>
+    <p><%= @error %></p>
+  <% end %>
   <h3>Questions</h3>
     <%@questions.each do |question|%>
       <div class="row question-row">
