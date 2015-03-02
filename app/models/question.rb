@@ -19,6 +19,8 @@ class Question < ActiveRecord::Base
       query = Tag.find_by_name(search)
       if query
         @questions = query.questions
+      else
+        @questions = []
       end
     else
       @questions = Question.recent
