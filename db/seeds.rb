@@ -4,17 +4,17 @@ users=[]
 end
 
 questions=[]
-1000.times do
-  questions << Question.create!(title: Faker::Company.catch_phrase, content: Faker::Company.bs, author: users.sample)
+400.times do
+  questions << Question.create!(title: Faker::Company.catch_phrase, content: Faker::Lorem.paragraph(20), author: users.sample)
 end
 
 answers=[]
-500.times do
+5000.times do
   answers << Answer.create!(content: Faker::Hacker.say_something_smart, question: questions.sample, author: users.sample)
 end
 
 comments=[]
-500.times do
+5000.times do
   comments << Comment.create!(answer: answers.sample, author: users.sample, content: Faker::Hacker.say_something_smart)
 end
 
@@ -23,7 +23,7 @@ until Tag.all.size == 20
  tags << Tag.create(name: Faker::Hacker.adjective)
 end
 
-4000.times do
+8000.times do
   Vote.create!(voter: users.sample, votable: (answers + comments + questions).sample, upvote: rand(2))
 end
 
