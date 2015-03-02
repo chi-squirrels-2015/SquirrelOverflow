@@ -8,10 +8,15 @@
     <div class="col-md-11">
       <h2><%= @question.title %></h2>
       <div class="question_content">
+        <div class="well well-lg">
           <p> <%= @question.content %> </p>
+          <div class="col-md-6">
+            <p><%= @question.author.username %> asked on <%= @question.created_at.strftime("%d %b %y") %> </p>
+          </div>
+        </div>
       </div>
       <div class="question_answers">
-          <%= render @answers %>
+        <%= render @answers %>
       </div>
 
       <div class="answer_form">

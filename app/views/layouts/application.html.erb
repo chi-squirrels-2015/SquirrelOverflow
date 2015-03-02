@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'squirrel.ico' %>
 </head>
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="container">
@@ -28,7 +29,7 @@
       <form class="navbar-form navbar-right" role="search">
       <%= form_tag questions_path, method: :get, :class => "form-inline" do %>
           <%= text_field_tag :query, params[:query], :class => "form-control", placeholder: "Search" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>   
+          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
       <% end %>
       </form>
     </div>
