@@ -19,7 +19,7 @@ comments=[]
 end
 
 tags=[]
-until Tag.all.size == 20
+until Tag.all.size == 30
  tags << Tag.create(name: Faker::Hacker.adjective)
 end
 
@@ -27,7 +27,7 @@ end
   Vote.create!(voter: users.sample, votable: (answers + comments + questions).sample, upvote: rand(2))
 end
 
-3200.times do
+3000.times do
   TaggedQuestion.create(tag: tags.sample, question: questions.sample)
 end
 
