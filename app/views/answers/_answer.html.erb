@@ -1,1 +1,6 @@
-<p> <%= answer.content %> </p>
+<div class="row question-row">
+  <p> <%= answer.content %> </p>
+  <div class="col-md-6">
+    <p><%= answer.author.username %> answered on <%= answer.created_at.strftime("%d %b %y") %> </p>
+  </div>
+</div>
