@@ -1,5 +1,5 @@
 class TaggedQuestion < ActiveRecord::Base
-  validates_uniqueness_of :tag_id, scope: :question_id
+  validates_uniqueness_of :question_id, scope: :tag_id
 
   belongs_to :question
   belongs_to :tag
